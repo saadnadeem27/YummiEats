@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../views/register_view.dart';
 
 class AuthController extends GetxController {
   // Form keys
@@ -129,7 +130,7 @@ class AuthController extends GetxController {
   }
 
   void goToRegister() {
-    Get.toNamed('/register');
+    Get.to(() => const RegisterView());
   }
 
   void goToLogin() {

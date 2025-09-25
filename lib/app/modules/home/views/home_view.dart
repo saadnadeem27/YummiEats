@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: SafeArea(
         child: RefreshIndicator(
-          onRefresh: controller.refreshData,
+          onRefresh: () async => controller.refreshData(),
           child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
@@ -38,13 +38,29 @@ class HomeView extends GetView<HomeController> {
 
   Widget _buildHeader() {
     return Container(
-      padding: const EdgeInsets.all(AppDimensions.paddingMedium),
-      decoration: const BoxDecoration(
-        gradient: AppColors.primaryGradient,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(AppDimensions.radiusLarge),
-          bottomRight: Radius.circular(AppDimensions.radiusLarge),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primary,
+            AppColors.accent,
+            AppColors.primary.withOpacity(0.8),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: const [0.0, 0.6, 1.0],
         ),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withOpacity(0.3),
+            blurRadius: 15,
+            offset: const Offset(0, 5),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,13 +214,24 @@ class HomeView extends GetView<HomeController> {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                gradient: AppColors.cardGradient,
-                borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
-                boxShadow: const [
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.primary.withOpacity(0.1),
+                    AppColors.accent.withOpacity(0.1),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                  color: AppColors.primary.withOpacity(0.2),
+                  width: 1,
+                ),
+                boxShadow: [
                   BoxShadow(
-                    color: AppColors.shadowLight,
-                    blurRadius: 8,
-                    offset: Offset(0, 4),
+                    color: AppColors.primary.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -337,13 +364,26 @@ class HomeView extends GetView<HomeController> {
         width: 280,
         margin: const EdgeInsets.only(right: AppDimensions.marginMedium),
         decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
-          boxShadow: const [
+          gradient: LinearGradient(
+            colors: [
+              Colors.white,
+              Colors.grey.shade50,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
             BoxShadow(
-              color: AppColors.shadowLight,
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 15,
+              offset: const Offset(0, 5),
+              spreadRadius: 2,
+            ),
+            BoxShadow(
+              color: AppColors.primary.withOpacity(0.1),
               blurRadius: 8,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 2),
             ),
           ],
         ),

@@ -1,3 +1,5 @@
+import 'menu_category.dart';
+
 class Restaurant {
   final String id;
   final String name;
@@ -18,6 +20,7 @@ class Restaurant {
   final bool isFavorite;
   final bool hasDiscount;
   final int? discountPercentage;
+  final List<MenuCategory> menuCategories;
 
   Restaurant({
     required this.id,
@@ -39,6 +42,7 @@ class Restaurant {
     this.isFavorite = false,
     this.hasDiscount = false,
     this.discountPercentage,
+    this.menuCategories = const [],
   });
 
   factory Restaurant.fromJson(Map<String, dynamic> json) {

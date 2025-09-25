@@ -4,8 +4,9 @@ import '../controllers/home_controller.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
 import 'home_view.dart';
+import '../controllers/home_controller.dart' as home;
 import '../../cart/views/cart_view.dart';
-import '../../tracking/views/order_tracking_view.dart';
+import '../../tracking/views/tracking_view.dart';
 import '../../profile/views/profile_view.dart';
 
 class MainView extends GetView<HomeController> {
@@ -17,7 +18,7 @@ class MainView extends GetView<HomeController> {
       const HomeView(),
       const SearchView(),
       const CartView(),
-      const OrderTrackingView(),
+      const TrackingView(),
       const ProfileView(),
     ];
 
@@ -90,7 +91,8 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SearchController searchController = Get.find<SearchController>();
+    final home.SearchController searchController =
+        Get.find<home.SearchController>();
 
     return Scaffold(
       appBar: AppBar(

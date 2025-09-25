@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import '../../../data/models/restaurant.dart';
 import '../../../data/models/category.dart';
 import '../../../data/services/dummy_data_service.dart';
+import '../../restaurant/views/restaurant_details_view.dart';
+import '../../restaurant/bindings/restaurant_binding.dart';
 
 class HomeController extends GetxController {
   final currentTabIndex = 0.obs;
@@ -52,11 +54,14 @@ class HomeController extends GetxController {
   }
 
   void goToRestaurant(Restaurant restaurant) {
-    Get.toNamed('/restaurant-details', arguments: restaurant);
+    RestaurantBinding().dependencies();
+    Get.to(() => const RestaurantDetailsView(), arguments: restaurant);
   }
 
   void goToCategory(Category category) {
-    Get.toNamed('/restaurants', arguments: {'category': category});
+    RestaurantBinding().dependencies();
+    Get.to(() => const RestaurantDetailsView(),
+        arguments: {'category': category});
   }
 
   String getGreeting() {

@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'app/core/theme/app_theme.dart';
 import 'app/core/constants/app_strings.dart';
-import 'app/routes/app_pages.dart';
-import 'app/routes/app_routes.dart';
+import 'app/modules/splash/views/splash_view.dart';
+import 'app/modules/splash/bindings/splash_binding.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,8 +27,8 @@ class YummiEatsApp extends StatelessWidget {
       title: AppStrings.appName,
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.initial,
-      getPages: AppPages.routes,
+      home: const SplashView(),
+      initialBinding: SplashBinding(),
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 300),
     );

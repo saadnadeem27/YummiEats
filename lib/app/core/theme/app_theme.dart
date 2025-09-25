@@ -7,7 +7,7 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       primarySwatch: MaterialColor(
-        AppColors.primary.value,
+        0xFFFF6B35,
         const <int, Color>{
           50: Color(0xFFFFF3E0),
           100: Color(0xFFFFE0B2),

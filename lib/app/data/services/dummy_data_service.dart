@@ -1,6 +1,7 @@
 import '../models/restaurant.dart';
 import '../models/food_item.dart';
 import '../models/category.dart';
+import '../models/menu_category.dart';
 
 class DummyDataService {
   static List<Category> getCategories() {
@@ -90,6 +91,7 @@ class DummyDataService {
         isFavorite: false,
         hasDiscount: true,
         discountPercentage: 20,
+        menuCategories: _getBurgerPalaceMenu(),
       ),
       Restaurant(
         id: '2',
@@ -333,5 +335,38 @@ class DummyDataService {
       default:
         return [];
     }
+  }
+
+  static List<MenuCategory> _getBurgerPalaceMenu() {
+    return [
+      MenuCategory(
+        id: 'burgers',
+        name: 'Burgers',
+        description: 'Delicious handcrafted burgers',
+        isPopular: true,
+        items: getFoodItems('Fast Food').take(3).toList(),
+      ),
+      MenuCategory(
+        id: 'sides',
+        name: 'Sides',
+        description: 'Crispy sides and appetizers',
+        items: [
+          FoodItem(
+            id: 'fries',
+            name: 'Crispy Fries',
+            description: 'Golden crispy french fries',
+            price: 4.99,
+            imageUrl:
+                'https://images.unsplash.com/photo-1573080496219-bb080dd4f877',
+            category: 'Sides',
+            isVegetarian: true,
+            rating: 4.2,
+            preparationTime: 10,
+            variants: [],
+            addOns: [],
+          ),
+        ],
+      ),
+    ];
   }
 }
