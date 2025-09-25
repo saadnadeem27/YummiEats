@@ -131,7 +131,7 @@ class CategoryRestaurantsView extends StatelessWidget {
             ),
           ),
         ),
-        
+
         // Restaurants List
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -145,7 +145,7 @@ class CategoryRestaurantsView extends StatelessWidget {
             ),
           ),
         ),
-        
+
         // Bottom spacing
         const SliverToBoxAdapter(
           child: SizedBox(height: 20),
@@ -176,7 +176,8 @@ class CategoryRestaurantsView extends StatelessWidget {
           children: [
             // Restaurant Image
             ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(16)),
               child: Container(
                 height: 160,
                 width: double.infinity,
@@ -199,7 +200,7 @@ class CategoryRestaurantsView extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Restaurant Info
             Padding(
               padding: const EdgeInsets.all(16),

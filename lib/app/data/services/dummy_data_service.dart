@@ -19,8 +19,7 @@ class DummyDataService {
       Category(
         id: '2',
         name: 'Pizza',
-        imageUrl:
-            'https://picsum.photos/300/200?random=10',
+        imageUrl: 'https://picsum.photos/300/200?random=10',
         iconUrl: '🍕',
         description: 'Hot and cheesy pizzas',
         itemCount: 25,
@@ -75,10 +74,8 @@ class DummyDataService {
         id: '1',
         name: 'Burger Palace',
         description: 'The best burgers in town with fresh ingredients',
-        imageUrl:
-            'https://picsum.photos/300/200?random=1',
-        coverImageUrl:
-            'https://picsum.photos/600/300?random=1',
+        imageUrl: 'https://picsum.photos/300/200?random=1',
+        coverImageUrl: 'https://picsum.photos/600/300?random=1',
         rating: 4.5,
         reviewCount: 250,
         cuisine: 'Fast Food',
@@ -99,10 +96,8 @@ class DummyDataService {
         id: '2',
         name: 'Pizza Corner',
         description: 'Authentic Italian pizzas with wood-fired taste',
-        imageUrl:
-            'https://picsum.photos/300/200?random=2',
-        coverImageUrl:
-            'https://picsum.photos/600/300?random=2',
+        imageUrl: 'https://picsum.photos/300/200?random=2',
+        coverImageUrl: 'https://picsum.photos/600/300?random=2',
         rating: 4.7,
         reviewCount: 180,
         cuisine: 'Italian',

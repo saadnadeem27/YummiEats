@@ -9,7 +9,7 @@ import 'app/modules/splash/bindings/splash_binding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize Supabase
   await SupabaseConfig.initialize();
 

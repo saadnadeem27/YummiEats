@@ -667,7 +667,8 @@ class HomeView extends GetView<home_controller.HomeController> {
         children: [
           // Search Header
           Container(
-            padding: const EdgeInsets.symmetric(vertical: AppDimensions.marginLarge),
+            padding:
+                const EdgeInsets.symmetric(vertical: AppDimensions.marginLarge),
             child: Column(
               children: [
                 const Text(
@@ -689,7 +690,7 @@ class HomeView extends GetView<home_controller.HomeController> {
               ],
             ),
           ),
-          
+
           // Search Bar
           Container(
             decoration: BoxDecoration(
@@ -722,9 +723,9 @@ class HomeView extends GetView<home_controller.HomeController> {
               ),
             ),
           ),
-          
+
           const SizedBox(height: AppDimensions.marginLarge),
-          
+
           // Search Results
           Expanded(
             child: Obx(() {
@@ -749,8 +750,15 @@ class HomeView extends GetView<home_controller.HomeController> {
   }
 
   Widget _buildSearchSuggestions() {
-    final popularSearches = ['Pizza', 'Burger', 'Sushi', 'Chinese', 'Italian', 'Fast Food'];
-    
+    final popularSearches = [
+      'Pizza',
+      'Burger',
+      'Sushi',
+      'Chinese',
+      'Italian',
+      'Fast Food'
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -766,27 +774,31 @@ class HomeView extends GetView<home_controller.HomeController> {
         Wrap(
           spacing: 10,
           runSpacing: 10,
-          children: popularSearches.map((search) => GestureDetector(
-            onTap: () => Get.find<home_controller.SearchController>().updateSearchText(search),
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppDimensions.marginMedium,
-                vertical: AppDimensions.marginSmall,
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppColors.primary.withOpacity(0.3)),
-              ),
-              child: Text(
-                search,
-                style: const TextStyle(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          )).toList(),
+          children: popularSearches
+              .map((search) => GestureDetector(
+                    onTap: () => Get.find<home_controller.SearchController>()
+                        .updateSearchText(search),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimensions.marginMedium,
+                        vertical: AppDimensions.marginSmall,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                            color: AppColors.primary.withOpacity(0.3)),
+                      ),
+                      child: Text(
+                        search,
+                        style: const TextStyle(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ))
+              .toList(),
         ),
       ],
     );
@@ -900,7 +912,8 @@ class HomeView extends GetView<home_controller.HomeController> {
                           ),
                         ),
                         const SizedBox(width: 12),
-                        const Icon(Icons.access_time, color: AppColors.grey, size: 16),
+                        const Icon(Icons.access_time,
+                            color: AppColors.grey, size: 16),
                         const SizedBox(width: 4),
                         Text(
                           '${restaurant.deliveryTime} min',
@@ -928,7 +941,8 @@ class HomeView extends GetView<home_controller.HomeController> {
         children: [
           // Cart Header
           Container(
-            padding: const EdgeInsets.symmetric(vertical: AppDimensions.marginLarge),
+            padding:
+                const EdgeInsets.symmetric(vertical: AppDimensions.marginLarge),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -1049,7 +1063,8 @@ class HomeView extends GetView<home_controller.HomeController> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.snackbar('Order Placed', 'Your order has been placed successfully!');
+                      Get.snackbar('Order Placed',
+                          'Your order has been placed successfully!');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
@@ -1082,9 +1097,9 @@ class HomeView extends GetView<home_controller.HomeController> {
       {'name': 'Caesar Salad', 'price': '\$8.99', 'quantity': 2},
       {'name': 'Garlic Bread', 'price': '\$3.99', 'quantity': 1},
     ];
-    
+
     final item = items[index];
-    
+
     return Container(
       margin: const EdgeInsets.only(bottom: AppDimensions.marginMedium),
       padding: const EdgeInsets.all(AppDimensions.marginMedium),
@@ -1192,7 +1207,8 @@ class HomeView extends GetView<home_controller.HomeController> {
         children: [
           // Favorites Header
           Container(
-            padding: const EdgeInsets.symmetric(vertical: AppDimensions.marginLarge),
+            padding:
+                const EdgeInsets.symmetric(vertical: AppDimensions.marginLarge),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1336,7 +1352,8 @@ class HomeView extends GetView<home_controller.HomeController> {
                           ),
                         ),
                         const SizedBox(width: 16),
-                        const Icon(Icons.access_time, color: AppColors.grey, size: 16),
+                        const Icon(Icons.access_time,
+                            color: AppColors.grey, size: 16),
                         const SizedBox(width: 4),
                         Text(
                           '${item['deliveryTime']} min',
@@ -1352,7 +1369,8 @@ class HomeView extends GetView<home_controller.HomeController> {
               ),
               IconButton(
                 onPressed: () {
-                  Get.snackbar('Removed', '${item['name']} removed from favorites');
+                  Get.snackbar(
+                      'Removed', '${item['name']} removed from favorites');
                 },
                 icon: const Icon(
                   Icons.favorite,
@@ -1391,7 +1409,8 @@ class HomeView extends GetView<home_controller.HomeController> {
                   child: CircleAvatar(
                     radius: 37,
                     backgroundColor: AppColors.primary.withOpacity(0.1),
-                    backgroundImage: const NetworkImage('https://picsum.photos/200/200?random=profile'),
+                    backgroundImage: const NetworkImage(
+                        'https://picsum.photos/200/200?random=profile'),
                     onBackgroundImageError: (exception, stackTrace) {},
                     child: const Icon(
                       Icons.person,
@@ -1467,7 +1486,8 @@ class HomeView extends GetView<home_controller.HomeController> {
             Icons.notifications_outlined,
             'Notifications',
             'Manage notification preferences',
-            () => Get.snackbar('Notifications', 'Opening notification settings'),
+            () =>
+                Get.snackbar('Notifications', 'Opening notification settings'),
           ),
           _buildProfileOption(
             Icons.help_outline,
@@ -1529,7 +1549,8 @@ class HomeView extends GetView<home_controller.HomeController> {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: (isDestructive ? AppColors.error : AppColors.primary).withOpacity(0.1),
+            color: (isDestructive ? AppColors.error : AppColors.primary)
+                .withOpacity(0.1),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(

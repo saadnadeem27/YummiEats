@@ -4,7 +4,7 @@ class SupabaseConfig {
   // Supabase Configuration
   static const String supabaseUrl = 'YOUR_SUPABASE_URL';
   static const String supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
-  
+
   // Initialize Supabase
   static Future<void> initialize() async {
     await Supabase.initialize(
@@ -21,19 +21,19 @@ class SupabaseConfig {
       ),
     );
   }
-  
+
   // Get Supabase client instance
   static SupabaseClient get client => Supabase.instance.client;
-  
+
   // Get Auth instance
   static GoTrueClient get auth => client.auth;
-  
+
   // Get Storage instance
   static SupabaseStorageClient get storage => client.storage;
-  
+
   // Get Realtime instance
   static RealtimeClient get realtime => client.realtime;
-  
+
   // Database table names
   static const String usersTable = 'users';
   static const String restaurantsTable = 'restaurants';

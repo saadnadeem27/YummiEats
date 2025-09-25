@@ -28,8 +28,12 @@ class User {
       email: json['email'] ?? '',
       phoneNumber: json['phone'] ?? json['phoneNumber'],
       photoUrl: json['avatar_url'] ?? json['photoUrl'],
-      createdAt: DateTime.tryParse(json['created_at'] ?? json['createdAt'] ?? '') ?? DateTime.now(),
-      updatedAt: DateTime.tryParse(json['updated_at'] ?? json['updatedAt'] ?? '') ?? DateTime.now(),
+      createdAt:
+          DateTime.tryParse(json['created_at'] ?? json['createdAt'] ?? '') ??
+              DateTime.now(),
+      updatedAt:
+          DateTime.tryParse(json['updated_at'] ?? json['updatedAt'] ?? '') ??
+              DateTime.now(),
       emailVerified: json['email_verified'] ?? false,
       metadata: json['metadata'],
     );

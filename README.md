@@ -507,10 +507,10 @@ git push origin feature/amazing-feature
 ## 👨‍💻 Developer
 
 **Saad Nadeem**
-- 🌐 **Portfolio**: [saadnadeem.dev](https://saadnadeem.dev)
-- 💼 **LinkedIn**: [linkedin.com/in/saadnadeem27](https://linkedin.com/in/saadnadeem27)
+<!-- - 🌐 **Portfolio**: [saadnadeem.dev](https://saadnadeem.dev) -->
+- 💼 **LinkedIn**: [linkedin.com/in/saadnadeem27](https://www.linkedin.com/in/saad-nadeem-07-an-expert-flutter-developer/)
 - 🐙 **GitHub**: [@saadnadeem27](https://github.com/saadnadeem27)
-- 📧 **Email**: saadnadeem.dev@gmail.com
+<!-- - 📧 **Email**: saadnadeem.dev@gmail.com -->
 
 ---
 
