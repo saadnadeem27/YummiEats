@@ -9,7 +9,7 @@ class DummyDataService {
       Category(
         id: '1',
         name: 'Fast Food',
-        imageUrl: 'https://images.unsplash.com/photo-1561758033-d89a9ad46330',
+        imageUrl: 'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Fast+Food',
         iconUrl: '🍔',
         description: 'Quick and delicious meals',
         itemCount: 50,
@@ -18,8 +18,7 @@ class DummyDataService {
       Category(
         id: '2',
         name: 'Pizza',
-        imageUrl:
-            'https://images.unsplash.com/photo-1513104890138-7c749659a591',
+        imageUrl: 'https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=Pizza',
         iconUrl: '🍕',
         description: 'Hot and cheesy pizzas',
         itemCount: 25,
@@ -28,8 +27,7 @@ class DummyDataService {
       Category(
         id: '3',
         name: 'Chinese',
-        imageUrl:
-            'https://images.unsplash.com/photo-1526318896980-cf78c088247c',
+        imageUrl: 'https://via.placeholder.com/300x200/FFE66D/FFFFFF?text=Chinese',
         iconUrl: '🥡',
         description: 'Authentic Chinese cuisine',
         itemCount: 35,
@@ -38,7 +36,7 @@ class DummyDataService {
       Category(
         id: '4',
         name: 'Desserts',
-        imageUrl: 'https://images.unsplash.com/photo-1551024506-0bccd828d307',
+        imageUrl: 'https://via.placeholder.com/300x200/FF8B94/FFFFFF?text=Desserts',
         iconUrl: '🍰',
         description: 'Sweet treats and desserts',
         itemCount: 40,
@@ -98,9 +96,9 @@ class DummyDataService {
         name: 'Pizza Corner',
         description: 'Authentic Italian pizzas with wood-fired taste',
         imageUrl:
-            'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b',
+            'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Pizza+Corner',
         coverImageUrl:
-            'https://images.unsplash.com/photo-1513104890138-7c749659a591',
+            'https://via.placeholder.com/600x300/FF6B6B/FFFFFF?text=Pizza+Cover',
         rating: 4.7,
         reviewCount: 180,
         cuisine: 'Italian',
