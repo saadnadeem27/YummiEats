@@ -1,47 +1,45 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../auth/views/login_view.dart';
+import '../../auth/bindings/auth_binding.dart';
 
 class OnboardingController extends GetxController {
-  final currentIndex = 0.obs;
+  late PageController pageController;
+  final currentPage = 0.obs;
 
-  final onboardingItems = [
-    {
-      'title': 'Discover Restaurants',
-      'subtitle':
-          'Find the best restaurants and cuisines near you with our extensive collection',
-      'image': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4',
-    },
-    {
-      'title': 'Easy Ordering',
-      'subtitle':
-          'Order your favorite food with just a few taps. Simple, fast, and convenient',
-      'image': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136',
-    },
-    {
-      'title': 'Fast Delivery',
-      'subtitle':
-          'Get your food delivered fast and fresh to your doorstep with real-time tracking',
-      'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b',
-    },
-  ];
+  @override
+  void onInit() {
+    super.onInit();
+    pageController = PageController();
+  }
+
+  @override
+  void onClose() {
+    pageController.dispose();
+    super.onClose();
+  }
 
   void nextPage() {
-    if (currentIndex.value < onboardingItems.length - 1) {
-      currentIndex.value++;
-    } else {
-      completeOnboarding();
+    if (currentPage.value < 2) {
+      currentPage.value++;
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.ease,
+      );
     }
   }
 
-  void skipOnboarding() {
+  void skipToLogin() {
     completeOnboarding();
   }
 
   void completeOnboarding() {
-    // Save that user has completed onboarding
-    Get.offAllNamed('/login');
+    // Navigate to login using direct navigation
+    AuthBinding().dependencies();
+    Get.off(() => const LoginView());
   }
 
   void goToPage(int index) {
-    currentIndex.value = index;
+    currentPage.value = index;
   }
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../../../core/constants/app_colors.dart';
-import '../../showcase/views/features_showcase_view.dart';
+import '../../onboarding/views/onboarding_view.dart';
+import '../../onboarding/bindings/onboarding_binding.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -59,7 +60,8 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   void _navigateToNextScreen() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(() => const FeaturesShowcaseView());
+      OnboardingBinding().dependencies();
+      Get.offAll(() => const OnboardingView());
     });
   }
 
@@ -68,6 +70,31 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     _pulseController.dispose();
     _fadeController.dispose();
     super.dispose();
+  }
+
+  Widget _buildAnimatedFoodIcon(String emoji, int index) {
+    return AnimatedBuilder(
+      animation: _pulseAnimation,
+      builder: (context, child) {
+        return Transform.scale(
+          scale: 0.8 + (_pulseAnimation.value - 0.8) * (1 - index * 0.1),
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.2),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                emoji,
+                style: const TextStyle(fontSize: 24),
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -186,7 +213,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
                         const SizedBox(height: 50),
 
-                        // Loading Indicator
+                        // Animated Food Icons
                         AnimationConfiguration.staggeredList(
                           position: 3,
                           duration: const Duration(milliseconds: 800),
@@ -195,15 +222,17 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                             child: FadeInAnimation(
                               child: FadeTransition(
                                 opacity: _fadeAnimation,
-                                child: SizedBox(
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      Colors.white.withOpacity(0.8),
-                                    ),
-                                    strokeWidth: 3,
-                                  ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    _buildAnimatedFoodIcon('🍕', 0),
+                                    const SizedBox(width: 20),
+                                    _buildAnimatedFoodIcon('🍔', 1),
+                                    const SizedBox(width: 20),
+                                    _buildAnimatedFoodIcon('🍜', 2),
+                                    const SizedBox(width: 20),
+                                    _buildAnimatedFoodIcon('🌮', 3),
+                                  ],
                                 ),
                               ),
                             ),

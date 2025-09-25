@@ -9,7 +9,8 @@ class DummyDataService {
       Category(
         id: '1',
         name: 'Fast Food',
-        imageUrl: 'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Fast+Food',
+        imageUrl:
+            'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Fast+Food',
         iconUrl: '🍔',
         description: 'Quick and delicious meals',
         itemCount: 50,
@@ -18,7 +19,8 @@ class DummyDataService {
       Category(
         id: '2',
         name: 'Pizza',
-        imageUrl: 'https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=Pizza',
+        imageUrl:
+            'https://picsum.photos/300/200?random=10',
         iconUrl: '🍕',
         description: 'Hot and cheesy pizzas',
         itemCount: 25,
@@ -27,7 +29,8 @@ class DummyDataService {
       Category(
         id: '3',
         name: 'Chinese',
-        imageUrl: 'https://via.placeholder.com/300x200/FFE66D/FFFFFF?text=Chinese',
+        imageUrl:
+            'https://via.placeholder.com/300x200/FFE66D/FFFFFF?text=Chinese',
         iconUrl: '🥡',
         description: 'Authentic Chinese cuisine',
         itemCount: 35,
@@ -36,7 +39,8 @@ class DummyDataService {
       Category(
         id: '4',
         name: 'Desserts',
-        imageUrl: 'https://via.placeholder.com/300x200/FF8B94/FFFFFF?text=Desserts',
+        imageUrl:
+            'https://via.placeholder.com/300x200/FF8B94/FFFFFF?text=Desserts',
         iconUrl: '🍰',
         description: 'Sweet treats and desserts',
         itemCount: 40,
@@ -72,9 +76,9 @@ class DummyDataService {
         name: 'Burger Palace',
         description: 'The best burgers in town with fresh ingredients',
         imageUrl:
-            'https://images.unsplash.com/photo-1571091718767-18b5b1457add',
+            'https://picsum.photos/300/200?random=1',
         coverImageUrl:
-            'https://images.unsplash.com/photo-1550547660-d9450f859349',
+            'https://picsum.photos/600/300?random=1',
         rating: 4.5,
         reviewCount: 250,
         cuisine: 'Fast Food',
@@ -96,9 +100,9 @@ class DummyDataService {
         name: 'Pizza Corner',
         description: 'Authentic Italian pizzas with wood-fired taste',
         imageUrl:
-            'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Pizza+Corner',
+            'https://picsum.photos/300/200?random=2',
         coverImageUrl:
-            'https://via.placeholder.com/600x300/FF6B6B/FFFFFF?text=Pizza+Cover',
+            'https://picsum.photos/600/300?random=2',
         rating: 4.7,
         reviewCount: 180,
         cuisine: 'Italian',

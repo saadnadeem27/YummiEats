@@ -2,8 +2,7 @@ import 'package:get/get.dart';
 import '../../../data/models/restaurant.dart';
 import '../../../data/models/category.dart';
 import '../../../data/services/dummy_data_service.dart';
-import '../../restaurant/views/restaurant_details_view.dart';
-import '../../restaurant/bindings/restaurant_binding.dart';
+import '../views/category_restaurants_view.dart';
 
 class HomeController extends GetxController {
   final currentTabIndex = 0.obs;
@@ -54,14 +53,13 @@ class HomeController extends GetxController {
   }
 
   void goToRestaurant(Restaurant restaurant) {
-    RestaurantBinding().dependencies();
-    Get.to(() => const RestaurantDetailsView(), arguments: restaurant);
+    // Navigate to restaurant details - will be implemented later
+    Get.snackbar('Restaurant', 'Opening ${restaurant.name}');
   }
 
   void goToCategory(Category category) {
-    RestaurantBinding().dependencies();
-    Get.to(() => const RestaurantDetailsView(),
-        arguments: {'category': category});
+    // Navigate to category restaurants screen
+    Get.to(() => CategoryRestaurantsView(category: category));
   }
 
   String getGreeting() {

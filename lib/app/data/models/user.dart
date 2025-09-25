@@ -6,6 +6,8 @@ class User {
   final String? photoUrl;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final bool emailVerified;
+  final Map<String, dynamic>? metadata;
 
   User({
     required this.id,
@@ -15,29 +17,35 @@ class User {
     this.photoUrl,
     required this.createdAt,
     required this.updatedAt,
+    this.emailVerified = false,
+    this.metadata,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'],
-      name: json['name'],
-      email: json['email'],
-      phoneNumber: json['phoneNumber'],
-      photoUrl: json['photoUrl'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
+      id: json['id'] ?? '',
+      name: json['full_name'] ?? json['name'] ?? '',
+      email: json['email'] ?? '',
+      phoneNumber: json['phone'] ?? json['phoneNumber'],
+      photoUrl: json['avatar_url'] ?? json['photoUrl'],
+      createdAt: DateTime.tryParse(json['created_at'] ?? json['createdAt'] ?? '') ?? DateTime.now(),
+      updatedAt: DateTime.tryParse(json['updated_at'] ?? json['updatedAt'] ?? '') ?? DateTime.now(),
+      emailVerified: json['email_verified'] ?? false,
+      metadata: json['metadata'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'name': name,
+      'full_name': name,
       'email': email,
-      'phoneNumber': phoneNumber,
-      'photoUrl': photoUrl,
-      'createdAt': createdAt.toIso8601String(),
-      'updatedAt': updatedAt.toIso8601String(),
+      'phone': phoneNumber,
+      'avatar_url': photoUrl,
+      'created_at': createdAt.toIso8601String(),
+      'updated_at': updatedAt.toIso8601String(),
+      'email_verified': emailVerified,
+      'metadata': metadata,
     };
   }
 
@@ -49,6 +57,8 @@ class User {
     String? photoUrl,
     DateTime? createdAt,
     DateTime? updatedAt,
+    bool? emailVerified,
+    Map<String, dynamic>? metadata,
   }) {
     return User(
       id: id ?? this.id,
@@ -58,6 +68,8 @@ class User {
       photoUrl: photoUrl ?? this.photoUrl,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      emailVerified: emailVerified ?? this.emailVerified,
+      metadata: metadata ?? this.metadata,
     );
   }
 }

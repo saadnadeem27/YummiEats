@@ -226,7 +226,8 @@ class FoodDetailsController extends GetxController {
       name: 'Sample Food Item',
       description: 'Sample description',
       price: 10.0,
-      imageUrl: 'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Food+Image',
+      imageUrl:
+          'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Food+Image',
       category: 'Sample',
       isVegetarian: false,
       rating: 4.0,

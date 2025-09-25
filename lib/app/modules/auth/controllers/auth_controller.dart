@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../views/register_view.dart';
+import '../../home/views/home_view.dart';
+import '../../home/bindings/home_binding.dart';
 
 class AuthController extends GetxController {
   // Form keys
@@ -43,60 +45,32 @@ class AuthController extends GetxController {
   }
 
   Future<void> login() async {
-    if (!loginFormKey.currentState!.validate()) return;
-
     try {
       isLoading.value = true;
 
       // Simulate API call
       await Future.delayed(const Duration(seconds: 2));
 
-      // Navigate to home
-      Get.offAllNamed('/home');
-
-      Get.snackbar(
-        'Success',
-        'Welcome back!',
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
-      );
+      // Navigate to home with binding
+      Get.offAll(() => const HomeView(), binding: HomeBinding());
     } catch (e) {
-      Get.snackbar(
-        'Error',
-        'Login failed. Please try again.',
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-      );
+      // Silent error handling for now
     } finally {
       isLoading.value = false;
     }
   }
 
   Future<void> register() async {
-    if (!registerFormKey.currentState!.validate()) return;
-
     try {
       isLoading.value = true;
 
       // Simulate API call
       await Future.delayed(const Duration(seconds: 2));
 
-      // Navigate to home
-      Get.offAllNamed('/home');
-
-      Get.snackbar(
-        'Success',
-        'Account created successfully!',
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
-      );
+      // Navigate to home with binding
+      Get.offAll(() => const HomeView(), binding: HomeBinding());
     } catch (e) {
-      Get.snackbar(
-        'Error',
-        'Registration failed. Please try again.',
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-      );
+      // Silent error handling for now
     } finally {
       isLoading.value = false;
     }
